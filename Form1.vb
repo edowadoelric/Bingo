@@ -24,14 +24,9 @@ Public Class Form1
 
     Sub run()
 
-        Dim r As New System.Random(75)
+        Dim r As New System.Random()
 
         Do
-            'intCount = intCount + 1
-            'If intCount > 99999 Then
-            '    intCount = 1
-            'End If
-
             num = r.Next(0, range)
 
             If finish = True Then
@@ -48,19 +43,19 @@ Public Class Form1
 
                     SetBingoNum((list(num) + 1).ToString)
 
-                    For j As Integer = num To range
-                        img(j) = img(j + 1)
-                        list(j) = list(j + 1)
-                    Next
-
-                    range -= 1
-
                     If insertColumn = 14 Then
                         insertColumn = 0
                         insertRow += 1
                     Else
                         insertColumn += 1
                     End If
+
+                    For j As Integer = num To range - 1
+                        img(j) = img(j + 1)
+                        list(j) = list(j + 1)
+                    Next
+
+                    range -= 1
 
                     finish = False
                     thr.Abort()
@@ -82,6 +77,8 @@ Public Class Form1
 
             newLabel.Text = num.ToString
             newLabel.TextAlign = ContentAlignment.MiddleCenter
+            newLabel.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right Or AnchorStyles.Top
+
             'newLabel.Font = New Font("HGゴシックM", 20)
             TableLayoutPanel1.Controls.Add(newLabel, insertColumn, insertRow)
         End If
