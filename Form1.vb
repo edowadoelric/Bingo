@@ -3,7 +3,7 @@
 'TabelLayoutPanel1はフォントをHGｺﾞｼｯｸM, 24pt, style=Bold, アンカーを全方向
 'PictureBox1はSizeModeをZoom
 'Shutdownはテキストをソフト終了, 位置はそれなりのところに
-'Label1については、場所は適当でも初期化の時に固定される
+'Label1については、場所は適当でも初期化の時に固定される。フォントはMS UI Gothic, 21.75p
 
 Public Class Form1
     
